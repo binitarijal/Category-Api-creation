@@ -4,6 +4,7 @@ require("dotenv").config();
 const connectDB=require('./src/config/db.config')
 
 const categoryRoutes= require("./src/routes/category.routes");
+const { showCategory } = require('./src/controllers/category.controllers');
 
 connectDB()
 
@@ -13,7 +14,7 @@ app.use("/uploads", express.static("uploads"));
 
 PORT=process.env.PORT || 5500
 
-app.use('/api/v1/category',categoryRoutes);
+app.use('/api/v1/category',categoryRoutes,);
 
 
 
