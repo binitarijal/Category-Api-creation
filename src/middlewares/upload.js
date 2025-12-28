@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png/;
   const ext = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
+    path.extname(file.originalname).toLowerCase() //eutai banayera check garney 
   );
   const mime = allowedTypes.test(file.mimetype);
 
