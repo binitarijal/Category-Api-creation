@@ -1,28 +1,24 @@
-const express=require('express');
-const app=express()
+const express = require('express');
+const app = express();
 require("dotenv").config();
-const connectDB=require('./src/config/db.config')
 
-const categoryRoutes= require("./src/routes/category.routes");
-const { showCategory } = require('./src/controllers/category.controllers');
+const connectDB = require('./src/config/db.config');
+const categoryRoutes = require("./src/routes/category.routes");
+const userRoutes = require("./src/routes/user.routes");
 
-connectDB()
-
-app.use(express.json())//middleware to read json
+app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
+connectDB();
 
-PORT=process.env.PORT || 5500
+app.use('/api/v1/category',categoryRoutes);
+app.use('/api/v1/register',userRoutes);
 
-app.use('/api/v1/category',categoryRoutes,);
+app.get('/api/v1/hehe', (req, res) => {
+  res.send("woowoowooo hommeeee");
+});
 
-
-
-
-
-app.get('/',(req,res)=>{
-    res.send("woowoowooo hommeeee")
-})
-app.listen(5000,(req,res)=>{
-    console.log(`port running ${PORT}`)
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
