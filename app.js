@@ -12,7 +12,7 @@ app.use("/uploads", express.static("uploads"));
 connectDB();
 
 app.use('/api/v1/category',categoryRoutes);
-app.use('/api/v1/register',userRoutes);
+app.use('/api/v1',userRoutes);
 
 app.get('/api/v1/hehe', (req, res) => {
   res.send("woowoowooo hommeeee");
