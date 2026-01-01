@@ -1,4 +1,6 @@
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./src/swagger');
 const app = express();
 require("dotenv").config();
 
@@ -10,6 +12,8 @@ app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
 connectDB();
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/v1/category',categoryRoutes);
 app.use('/api/v1',userRoutes);
