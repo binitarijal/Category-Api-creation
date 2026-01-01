@@ -7,6 +7,10 @@ const createCategory=async(req,res)=>{
     //console.log("hello")
     try{
         const{name,active}=req.body
+        const exists = await Category.findOne({ name: { $regex: `^${name}$`, $options: "i" } });
+if (exists) {
+  return res.status(400).json({ error: "Category with this name already exists" });
+}
         logo=req.file.path
         if(!req.file){
           return  res.status(400).json({
