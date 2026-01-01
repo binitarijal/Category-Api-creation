@@ -16,7 +16,7 @@ connectDB();
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/v1/category',categoryRoutes);
-app.use('/api/v1',userRoutes);
+app.use('/api/v1/user',userRoutes);
 
 app.get('/api/v1/hehe', (req, res) => {
   res.send("woowoowooo hommeeee");
