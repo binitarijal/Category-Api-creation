@@ -1,20 +1,27 @@
-﻿# Portfolio App Be
-This project is built using Node.js and Express.
+﻿Portfolio App Be
+
+This project is built using Node.js, Express, and pnpm as the package manager.
 
 📌 Prerequisites
 
 Make sure you have these installed on your system:
 
 Node.js (v16+ recommended)
+
 👉 Check version:
 
 node -v
 
+pnpm (Package Manager)
 
-npm (comes with Node.js)
+👉 Install pnpm globally:
+
+npm install -g pnpm
+
+
 👉 Check version:
 
-npm -v
+pnpm -v
 
 📂 Project Setup
 1️⃣ Clone the Repository
@@ -24,10 +31,10 @@ git clone <your-repo-url>
 cd project-folder-name
 
 📦 Install Dependencies
-npm install
+pnpm install
 
 
-This will install all required packages listed in package.json.
+This will install all required packages listed in package.json and create pnpm-lock.yaml.
 
 ⚙️ Environment Variables (If Required)
 
@@ -44,10 +51,10 @@ MONGO_URI=your_database_url
 
 Uses nodemon (auto-restarts server on changes):
 
-npm run dev
+pnpm run dev
 
 🔹 Production Mode
-npm start
+pnpm start
 
 🌐 Server Info
 
@@ -67,5 +74,17 @@ http://localhost:5000
 "scripts": {
   "dev": "nodemon app.js",
   "start": "node app.js"
-
 }
+
+
+📌 Note: Scripts remain the same — only the command runner changes from npm to pnpm.
+
+⚠️ Important Notes
+
+❌ Do NOT use npm install after switching
+
+✅ Always use:
+
+pnpm install
+pnpm add <package>
+pnpm run dev
