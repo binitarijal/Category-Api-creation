@@ -1,7 +1,12 @@
 const express= require('express')
 const router= express.Router();
-const upload= require("../middlewares/upload")
+//const upload= require("../middlewares/upload")
+const {storage}= require("../cloudinary/index")
+const multer= require("multer")
 const {createCategory, showCategory, updateCategory, deleteCategory}= require("../controllers/category.controllers")
+
+const upload= multer({storage: storage})
+
 /**
  * @swagger
  * tags:
